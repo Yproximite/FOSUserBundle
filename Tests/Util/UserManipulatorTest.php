@@ -11,6 +11,7 @@
 
 namespace FOS\UserBundle\Tests\Util;
 
+use FOS\UserBundle\Event\Event;
 use FOS\UserBundle\FOSUserEvents;
 use FOS\UserBundle\Tests\TestUser;
 use FOS\UserBundle\Util\UserManipulator;
@@ -373,13 +374,13 @@ class UserManipulatorTest extends TestCase
      *
      * @return \PHPUnit_Framework_MockObject_MockObject
      */
-    protected function getEventDispatcherMock($event, $once = true)
+    protected function getEventDispatcherMock($eventName, $once = true)
     {
         $eventDispatcherMock = $this->getMockBuilder('Symfony\Component\EventDispatcher\EventDispatcherInterface')->getMock();
 
         $eventDispatcherMock->expects($once ? $this->once() : $this->never())
             ->method('dispatch')
-            ->with($event);
+            ->with($this->isInstanceOf(Event::class), $eventName);
 
         return $eventDispatcherMock;
     }

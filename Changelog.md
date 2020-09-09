@@ -5,8 +5,9 @@ Changelog
 
 * Dropped PHP 5 and PHP 7.1 support,
 * Dropped Symfony 2.8 support,
-* Bumped minimum Symfony 3 requirement to 3.4,
-* Bumped minimum Symfony 4 requirement to 4.3,
+* Dropped Symfony 3 support,
+* Bumped minimum Symfony 4 requirement to 4.4,
+* Added Symfony 5 support,
 * All controllers have been marked final,
 * All controllers extend `AbstractController` instead of `Controller`,
 * Replaced EngineInterface type hints by Twig\Environment,

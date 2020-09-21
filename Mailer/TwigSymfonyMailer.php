@@ -103,7 +103,7 @@ class TwigSymfonyMailer implements MailerInterface
             $htmlBody = $template->renderBlock('body_html', $context);
         }
 
-        if(is_string($fromEmail)) {
+        if (is_string($fromEmail)) {
             $fromEmail = [new Address($fromEmail)];
         } else {
             $k = array_keys($fromEmail)[0];
@@ -114,7 +114,6 @@ class TwigSymfonyMailer implements MailerInterface
             ->subject($subject)
             ->from(...$fromEmail)
             ->to($toEmail);
-
 
         if (!empty($htmlBody)) {
             $email

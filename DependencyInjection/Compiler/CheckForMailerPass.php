@@ -47,7 +47,6 @@ class CheckForMailerPass implements CompilerPassInterface
             throw new \LogicException($message);
         }
 
-
         if ($container->findDefinition('fos_user.mailer')->hasTag('fos_user.requires_symfony_mailer')) {
             $message = 'A feature you activated in FOSUserBundle requires the "mailer" service to be available.';
 

@@ -90,13 +90,13 @@ class TwigSymfonyMailerTest extends TestCase
             $this->getMockBuilder('Symfony\Component\Routing\Generator\UrlGeneratorInterface')->getMock(),
             $this->getTwigEnvironment(),
             [
-                'template'   => [
+                'template' => [
                     'confirmation' => 'foo',
-                    'resetting'    => 'foo',
+                    'resetting' => 'foo',
                 ],
                 'from_email' => [
                     'confirmation' => ['foo@example.com' => 'Foo Example'],
-                    'resetting'    => 'foo@example.com',
+                    'resetting' => 'foo@example.com',
                 ],
             ]
         );

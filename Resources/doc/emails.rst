@@ -41,15 +41,16 @@ Default Mailer Implementations
 The bundle comes with three mailer implementations. They are listed below
 by service id:
 
-- ``fos_user.mailer.default`` is the default implementation, and uses Swiftmailer to send emails.
+- ``fos_user.mailer.default`` is the default implementation, and uses Symfony Mailer to send emails.
 - ``fos_user.mailer.twig_swift`` uses Swiftmailer to send emails and Twig blocks to render the message.
+- ``fos_user.mailer.twig_symfony`` uses Symfony Mailer to send emails and Twig blocks to render the message.
 - ``fos_user.mailer.noop`` is a mailer implementation which performs no operation, so no emails are sent.
 
 .. note::
 
     The ``fos_user.mailer.noop`` mailer service should be used in the case
     where you do not want the bundle to send emails and you do not want to
-    include the SwiftmailerBundle in your app. If you leave the default implementation
+    include the SymfonymailerBundle or Symfony Mailer in your app. If you leave the default implementation
     configured as the mailer and do not have the SwiftmailerBundle registered,
     you will receive an exception because of a missing dependency.
 
@@ -107,8 +108,9 @@ Sending HTML mails
 ------------------
 
 The default mailer only supports sending plain text messages. If you want
-to send multipart messages, the easiest solution is to use the TwigSwiftMailer
-implementation instead. It expects your twig template to define 3 blocks:
+to send multipart messages, the easiest solution is to use the TwigSwiftMailer or
+TwigSymfonyMailer implementation instead.
+It expects your twig template to define 3 blocks:
 
 - ``subject`` containing the email subject
 - ``body_text`` rendering the plain text version of the message
@@ -123,7 +125,7 @@ of referencing the email template below.
     fos_user:
         # ...
         service:
-            mailer: fos_user.mailer.twig_swift
+            mailer: fos_user.mailer.twig_swift # or fos_user.mailer.twig_symfony
         resetting:
             email:
                 template:   email/password_resetting.email.twig

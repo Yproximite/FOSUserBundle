@@ -16,7 +16,7 @@ use FOS\UserBundle\Model\UserInterface;
 /**
  * This mailer does nothing.
  * It is used when the 'email' configuration is not set,
- * and allows to use this bundle without swiftmailer.
+ * and allows to use this bundle without swiftmailer or Symfony Mailer.
  *
  * @author Thibault Duplessis <thibault.duplessis@gmail.com>
  */
